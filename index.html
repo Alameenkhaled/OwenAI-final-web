@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OwenAI | The Trust Protocol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              void: '#020408',
+              panel: '#0B0E14',
+              cyan: '#00F0FF',
+              risk: '#FF2A5D',
+              safe: '#00FF94',
+              gold: '#FFD700',
+              slate: '#64748B',
+            },
+            fontFamily: {
+              display: ['Space Grotesk', 'sans-serif'],
+              body: ['Inter', 'sans-serif'],
+              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+            },
+            animation: {
+              'scan': 'scan 4s linear infinite',
+              'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'spin-slow': 'spin 20s linear infinite',
+              'marquee': 'marquee 30s linear infinite',
+            },
+            keyframes: {
+              scan: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' }
+              },
+              pulseGlow: {
+                '0%, 100%': { boxShadow: '0 0 20px rgba(0, 240, 255, 0.1)' },
+                '50%': { boxShadow: '0 0 40px rgba(0, 240, 255, 0.3)' }
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              marquee: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              }
+            },
+            backgroundImage: {
+              'grid-pattern': "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)",
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { background-color: #020408; overflow-x: hidden; scroll-behavior: smooth; }
+      .text-glow { text-shadow: 0 0 30px rgba(0, 240, 255, 0.4); }
+      .glass { background: rgba(11, 14, 20, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+      .hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      
+      /* 3D Cube Styles */
+      .cube-wrapper { perspective: 1000px; }
+      .cube { position: relative; width: 200px; height: 200px; transform-style: preserve-3d; animation: spin-3d 20s infinite linear; }
+      .face { position: absolute; width: 200px; height: 200px; border: 1px solid rgba(0, 240, 255, 0.3); background: rgba(0, 240, 255, 0.05); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', monospace; font-size: 10px; color: #00F0FF; backdrop-filter: blur(2px); }
+      .front  { transform: rotateY(0deg) translateZ(100px); }
+      .back   { transform: rotateY(180deg) translateZ(100px); }
+      .right  { transform: rotateY(90deg) translateZ(100px); }
+      .left   { transform: rotateY(-90deg) translateZ(100px); }
+      .top    { transform: rotateX(90deg) translateZ(100px); }
+      .bottom { transform: rotateX(-90deg) translateZ(100px); }
+      @keyframes spin-3d { from { transform: rotateX(0deg) rotateY(0deg); } to { transform: rotateX(360deg) rotateY(360deg); } }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
